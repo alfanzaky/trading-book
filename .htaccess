@@ -1,0 +1,43 @@
+# ---------------------------------------------------------------
+# SECURITY
+# ---------------------------------------------------------------
+Options -Indexes
+ServerSignature Off
+
+# ---------------------------------------------------------------
+# ENABLE REWRITE ENGINE
+# ---------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine On
+
+    # Kalau project kamu di subfolder, set di sini:
+    # Misal: http://localhost/trading-book/
+    RewriteBase /trading-book/
+
+    # Redirect Trailing Slashes...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Hilangkan "www." (opsional)
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+
+    # ---------------------------------------------------------------
+    # INI BAGIAN PALING PENTING
+    # ---------------------------------------------------------------
+    # Pastikan semua request non-file & non-folder diarahkan ke index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+    # Pastikan Authorization header tetap dikirim (buat API)
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 index.php
+</IfModule>

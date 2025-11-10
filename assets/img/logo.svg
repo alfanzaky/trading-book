@@ -1,0 +1,74 @@
+<!-- trading-book-full.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160" role="img" aria-labelledby="title desc">
+  <title id="title">Trading-Book</title>
+  <desc id="desc">Modern logo combining an open book with candlestick bars and an upward arrow, for Trading-Book web app.</desc>
+
+  <defs>
+    <!-- gradient untuk ikon -->
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2EC4B6"/>
+      <stop offset="0.5" stop-color="#2B9BF0"/>
+      <stop offset="1" stop-color="#6C5CE7"/>
+    </linearGradient>
+
+    <!-- subtle shadow -->
+    <filter id="fShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+
+    <!-- stroke gradient for text -->
+    <linearGradient id="textGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#374151"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background transparent -->
+  <rect width="520" height="160" fill="none"/>
+
+  <!-- ICON: stylized open book with candlesticks -->
+  <g transform="translate(28,20)" filter="url(#fShadow)">
+    <!-- open-book base -->
+    <path d="M0 16 C28 0 72 0 100 16 C128 0 172 0 200 16 L200 96 C160 72 120 72 100 80 C80 72 40 72 0 96 Z"
+          fill="url(#g1)"/>
+    <!-- inner fold / spine -->
+    <path d="M98 16 C100 32 102 48 100 64" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2"/>
+
+    <!-- candlestick bars placed across the book pages -->
+    <!-- Bar 1 -->
+    <g transform="translate(36,26)">
+      <rect x="0" y="18" width="10" height="26" rx="2" ry="2" fill="#ffffff" fill-opacity="0.95"/>
+      <rect x="4" y="0" width="2" height="44" fill="#ffffff" fill-opacity="0.18"/>
+    </g>
+
+    <!-- Bar 2 (higher) -->
+    <g transform="translate(64,12)">
+      <rect x="0" y="8" width="10" height="36" rx="2" ry="2" fill="#ffffff" />
+      <rect x="4" y="-6" width="2" height="50" fill="#ffffff" fill-opacity="0.18"/>
+    </g>
+
+    <!-- Bar 3 (lower) -->
+    <g transform="translate(92,34)">
+      <rect x="0" y="26" width="10" height="18" rx="2" ry="2" fill="#ffffff" fill-opacity="0.95"/>
+      <rect x="4" y="12" width="2" height="32" fill="#ffffff" fill-opacity="0.18"/>
+    </g>
+
+    <!-- Arrow rising — integrated with book right page -->
+    <path d="M122 34 L154 8 L158 12 L130 40 Z" fill="#FFD166" />
+    <path d="M120 48 L154 12" stroke="#FFD166" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.95"/>
+  </g>
+
+  <!-- TEXT: Trading-Book -->
+  <g transform="translate(220,84)">
+    <text x="0" y="0" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="34" font-weight="700" fill="url(#textGrad)" dominant-baseline="middle">
+      Trading
+    </text>
+    <text x="0" y="40" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="24" font-weight="600" fill="#6b7280" dominant-baseline="middle">
+      Book
+    </text>
+    <!-- small tagline optional -->
+    <text x="0" y="72" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="12" fill="#9ca3af">
+      Journal & portfolio insights
+    </text>
+  </g>
+</svg>
